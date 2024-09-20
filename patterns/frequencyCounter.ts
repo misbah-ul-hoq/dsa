@@ -13,8 +13,37 @@ const same = (arr1: number[], arr2: number[]) => {
     if (!(key ** 2 in obj2)) {
       return false;
     }
+    // @ts-ignore
     if (obj2[key ** 2] !== obj1[key]) return false;
   }
   return true;
 };
-same([1, 2, 3], [1, 4, 9]);
+// same([1, 2, 3], [1, 4, 9]);
+
+const validAnagram = (str1: string, str2: string) => {
+  const filteredStr1 = str1.replaceAll(" ", "");
+  const filteredStr2 = str2.replaceAll(" ", "");
+  if (filteredStr1.length !== filteredStr2.length) return false;
+
+  const frequencyCounter1: any = {};
+  const frequencyCounter2: any = {};
+
+  for (const i of filteredStr1) {
+    frequencyCounter1[i] = (frequencyCounter1[i] || 0) + 1;
+  }
+
+  for (const i of filteredStr2) {
+    frequencyCounter2[i] = (frequencyCounter2[i] || 0) + 1;
+  }
+
+  for (const key in frequencyCounter1) {
+    if (!(key in frequencyCounter2)) {
+      return false;
+    } else if (frequencyCounter1[key] !== frequencyCounter2[key]) {
+      return false;
+    }
+  }
+  return true;
+};
+//{a: 1, b: 1, c: 2}, {b: 2, c: 1, a: 1}
+console.log(validAnagram("rat", "car"));
