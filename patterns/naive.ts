@@ -18,4 +18,20 @@ const validAnagramNaive = (str1: string, str2: string) => {
   return true;
 };
 
-console.log(validAnagram("dormitory", "dirty    room"));
+// console.log(validAnagram("dormitory", "dirty    room"));
+
+const maxSubArraySumNaive = (arr: number[], elements: number) => {
+  let max = -Infinity;
+  for (let i = 0; i < arr.length - elements + 1; i++) {
+    let temp = 0;
+    for (let j = 0; j < elements; j++) {
+      temp += arr[i + j];
+    }
+    if (temp > max) {
+      max = temp;
+    }
+  }
+  return max;
+};
+
+console.log(maxSubArraySumNaive([1, 1, 2, 3, 2, 5, 1], 2));

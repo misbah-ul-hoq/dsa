@@ -46,4 +46,4 @@ const validAnagram = (str1, str2) => {
     return true;
 };
 //{a: 1, b: 1, c: 2}, {b: 2, c: 1, a: 1}
-console.log(validAnagram("rat", "car"));
+// console.log(validAnagram("rat", "car"));
