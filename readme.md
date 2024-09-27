@@ -12,9 +12,16 @@
 
 # Searching Algorithms
 
-- ### Linear Search (Time Complexity -- O(n))
-- ### Binary Search (Time Complexity -- O(log n))
+### Linear Search (Time Complexity -- O(n))
+
+### Binary Search (Time Complexity -- O(log n))
 
 # Sorting Algorithms
 
-- ### Bubble Sort (Time complexity -- O(n<sup>2</sup>))
+### Bubble Sort (Time complexity -- O(n<sup>2</sup>))
+
+Loop over the array and compare items. After the first iteration the largest number goes to the last index. So the next time we loop till the second last element. And this is how bubble sort works by sending the large numbers to the end.
+
+### Selection Sort (Time complexity -- O(n<sup>2</sup>))
+
+### Insertion Sort (Time complexity -- O(n<sup>2</sup>))
