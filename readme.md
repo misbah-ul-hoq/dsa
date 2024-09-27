@@ -9,3 +9,12 @@
   Create a variable to store data. Then slide that variable...
 - ### Divide and Conquer
   This is found in binary search, merge sort, quick sort etc.....
+
+# Searching Algorithms
+
+- ### Linear Search (Time Complexity -- O(n))
+- ### Binary Search (Time Complexity -- O(log n))
+
+# Sorting Algorithms
+
+- ### Bubble Sort (Time complexity -- O(n<sup>2</sup>))
