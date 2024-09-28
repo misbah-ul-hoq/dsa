@@ -1,6 +1,6 @@
 import { mergerSortedArrays } from "./mergeSortedArrays";
 
-const mergeSort = (arr: number[]) => {
+const mergeSort = (arr: number[]): any => {
   if (arr.length <= 1) {
     return arr;
   }
