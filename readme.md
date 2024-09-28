@@ -25,3 +25,7 @@ Loop over the array and compare items. After the first iteration the largest num
 ### Selection Sort (Time complexity -- O(n<sup>2</sup>))
 
 ### Insertion Sort (Time complexity -- O(n<sup>2</sup>))
+
+### Merge Sort (Time complexity -- O(n logn))
+
+<!-- ### Quick Sort (Time complexity -- O(n logn)) -->
