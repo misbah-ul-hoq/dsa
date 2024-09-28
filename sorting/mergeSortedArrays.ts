@@ -1,4 +1,4 @@
-const mergerSortedArrays = (arr1: number[], arr2: number[]) => {
+export const mergerSortedArrays = (arr1: number[], arr2: number[]) => {
   const result: number[] = [];
   let leftIndex = 0;
   let rightIndex = 0;
