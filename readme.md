@@ -28,4 +28,6 @@ Loop over the array and compare items. After the first iteration the largest num
 
 ### Merge Sort (Time complexity -- O(n logn))
 
-<!-- ### Quick Sort (Time complexity -- O(n logn)) -->
+### Quick Sort (Time complexity -- O(n logn) (average case))
+
+### Radix Sort (Time complexity -- O(n logn) )
