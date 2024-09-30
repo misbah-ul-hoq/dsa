@@ -1,4 +1,6 @@
 "use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.pivot = pivot;
 function swap(arr, index1, index2) {
     [arr[index1], arr[index2]] = [arr[index2], arr[index1]];
 }
@@ -15,4 +17,3 @@ function pivot(arr, start = 0, end = arr.length - 1) {
     return swapIndex;
 }
 console.log(pivot([2, 1, 3, 7, -1, 0]));
-// [2, 1, 3, 7, -1, 0]
