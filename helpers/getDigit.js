@@ -12,7 +12,7 @@ function getDigitOne(num, digit) {
 function getDigit(num, index) {
     return Math.floor(Math.abs(num) / Math.pow(10, index)) % 10;
 }
-// console.log(getDigit(12442, 2));
+// console.log(getDigit(12442, 0));
 function digitCount(num) {
     return num === 0 ? 1 : Math.floor(Math.log10(num)) + 1;
 }
@@ -20,4 +20,4 @@ function digitCount(num) {
 function maxDigits(nums) {
     return digitCount(Math.max(...nums));
 }
-console.log(maxDigits([2, 1, 33, 12224, 42]));
+// console.log(maxDigits([2, 1, 33, 12224, 42]));
