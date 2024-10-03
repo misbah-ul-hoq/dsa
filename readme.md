@@ -31,3 +31,7 @@ Loop over the array and compare items. After the first iteration the largest num
 ### Quick Sort (Time complexity -- O(n logn) (average case))
 
 ### Radix Sort (Time complexity -- O(n logn) )
+
+# Data Structures
+
+### Singly Linked Lists
