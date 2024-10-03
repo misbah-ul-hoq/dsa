@@ -66,10 +66,23 @@ class SinglyLinkedList {
         this.length++;
         return this;
     }
+    get(index) {
+        if (index < 0 || index >= this.length)
+            return undefined;
+        let i = 0;
+        let currentVal = this.head;
+        while (i <= index) {
+            if (i === index) {
+                return currentVal;
+            }
+            currentVal = currentVal.next;
+            i++;
+        }
+    }
 }
 const list = new SinglyLinkedList();
 list.push("some value");
 list.push("some value two");
 list.push("some value three");
-console.log(list.unshift("should be at the beginning"));
-console.log(list);
+console.log(list.get(0));
+// console.log(list);
