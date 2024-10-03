@@ -79,10 +79,22 @@ class SinglyLinkedList {
             i++;
         }
     }
+    set(index, value) {
+        if (index < 0 || index >= this.length)
+            return undefined;
+        let i = 0;
+        let currentValue = this.get(index);
+        currentValue.val = value;
+        return this;
+    }
 }
 const list = new SinglyLinkedList();
+{
+}
 list.push("some value");
 list.push("some value two");
 list.push("some value three");
-console.log(list.get(0));
+// console.log(list.get(0));
+console.log(list.set(1, "new value two"));
+console.log(list.get(1));
 // console.log(list);
