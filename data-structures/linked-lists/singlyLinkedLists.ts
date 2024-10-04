@@ -86,6 +86,24 @@ class SinglyLinkedList {
     currentValue.val = value;
     return this;
   }
+  insert(index: number, value: any) {
+    if (index < 0 || index > this.length) return false;
+
+    if (index === 0) {
+      this.unshift(value);
+    } else if (index === this.length) {
+      this.push(value);
+    } else {
+      let newNode = new Nodes(value);
+      let previous = this.get(index - 1);
+      let next = this.get(index);
+      previous.next = newNode;
+      newNode.next = next;
+      this.length++;
+    }
+
+    return true;
+  }
 }
 
 const list = new SinglyLinkedList();
@@ -94,7 +112,6 @@ const list = new SinglyLinkedList();
 list.push("some value");
 list.push("some value two");
 list.push("some value three");
-// console.log(list.get(0));
-console.log(list.set(1, "new value two"));
-console.log(list.get(1));
+list.insert(1, "between two and three");
+console.log(list);
 // console.log(list);
