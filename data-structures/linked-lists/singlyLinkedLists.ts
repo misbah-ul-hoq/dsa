@@ -16,6 +16,7 @@ class SinglyLinkedList {
     this.tail = null;
     this.length = 0;
   }
+
   push(val: any) {
     let node = new Nodes(val);
     if (!this.head) {
@@ -28,6 +29,7 @@ class SinglyLinkedList {
     this.length++;
     return this;
   }
+
   pop() {
     if (this.length === 0) return undefined;
     let current = this.head;
@@ -45,6 +47,7 @@ class SinglyLinkedList {
     }
     return current;
   }
+
   shift() {
     if (this.length === 0) return undefined;
     let currentHead = this.head;
@@ -55,6 +58,7 @@ class SinglyLinkedList {
     }
     return currentHead;
   }
+
   unshift(val: any) {
     let newNode = new Nodes(val);
     if (!this.head) {
@@ -67,6 +71,7 @@ class SinglyLinkedList {
     this.length++;
     return this;
   }
+
   get(index: number) {
     if (index < 0 || index >= this.length) return undefined;
     let i = 0;
@@ -79,6 +84,7 @@ class SinglyLinkedList {
       i++;
     }
   }
+
   set(index: number, value: any) {
     if (index < 0 || index >= this.length) return undefined;
     let i = 0;
@@ -86,6 +92,7 @@ class SinglyLinkedList {
     currentValue.val = value;
     return this;
   }
+
   insert(index: number, value: any) {
     if (index < 0 || index > this.length) return false;
 
@@ -101,17 +108,31 @@ class SinglyLinkedList {
       newNode.next = next;
       this.length++;
     }
-
     return true;
+  }
+
+  remove(index: number) {
+    if (index < 0 || index >= this.length) return false;
+    else if (index === 0) {
+      return this.shift();
+    } else if (index === this.length - 1) {
+      return this.pop();
+    } else {
+      const current = this.get(index);
+      let prev = this.get(index - 1);
+      let next = this.get(index + 1);
+      prev.next = next;
+      this.length--;
+      return current;
+    }
   }
 }
 
 const list = new SinglyLinkedList();
-{
-}
+
 list.push("some value");
 list.push("some value two");
 list.push("some value three");
-list.insert(1, "between two and three");
+console.log(list.remove(0));
 console.log(list);
 // console.log(list);

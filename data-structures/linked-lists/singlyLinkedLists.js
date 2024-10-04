@@ -106,13 +106,29 @@ class SinglyLinkedList {
         }
         return true;
     }
+    remove(index) {
+        if (index < 0 || index >= this.length)
+            return false;
+        else if (index === 0) {
+            return this.shift();
+        }
+        else if (index === this.length - 1) {
+            return this.pop();
+        }
+        else {
+            const current = this.get(index);
+            let prev = this.get(index - 1);
+            let next = this.get(index + 1);
+            prev.next = next;
+            this.length--;
+            return current;
+        }
+    }
 }
 const list = new SinglyLinkedList();
-{
-}
 list.push("some value");
 list.push("some value two");
 list.push("some value three");
-list.insert(1, "between two and three");
+console.log(list.remove(0));
 console.log(list);
 // console.log(list);
