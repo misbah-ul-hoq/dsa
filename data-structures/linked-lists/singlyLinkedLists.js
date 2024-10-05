@@ -143,6 +143,5 @@ const list = new SinglyLinkedList();
 list.push("some value");
 list.push("some value two");
 list.push("some value three");
-list.reverse();
 console.log(list);
 // console.log(list);
