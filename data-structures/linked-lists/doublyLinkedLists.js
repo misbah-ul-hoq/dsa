@@ -43,13 +43,32 @@ class DoublyLinkedList {
         this.length--;
         return temp;
     }
+    shift() {
+        let removedNode = this.head;
+        if (this.length === 0) {
+            return undefined;
+        }
+        else if (this.length === 1) {
+            this.head = null;
+            this.tail = null;
+        }
+        else {
+            this.head = removedNode.next;
+            this.head.prev = null;
+            removedNode.next = null;
+        }
+        this.length--;
+        return removedNode;
+    }
 }
 const doublyList = new DoublyLinkedList();
 doublyList.push("something");
 doublyList.push("something two");
 doublyList.push("something three");
 doublyList.push("something four");
-doublyList.pop();
-console.log(doublyList.pop());
-console.log(doublyList.pop());
+console.log(doublyList.shift());
+console.log(doublyList.shift());
+console.log(doublyList.shift());
+console.log(doublyList.shift());
+// console.log(doublyList.shift());
 console.log(doublyList);
