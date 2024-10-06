@@ -64,16 +64,27 @@ class DoublyLinkedList {
     this.length--;
     return removedNode;
   }
+
+  unshift(val: any) {
+    let newNode = new DoublyNode(val);
+    if (this.length === 0) {
+      this.head = newNode;
+      this.tail = newNode;
+    } else {
+      this.head.prev = newNode;
+      newNode.next = this.head;
+      this.head = newNode;
+    }
+    this.length++;
+    return this;
+  }
 }
 
 const doublyList = new DoublyLinkedList();
-doublyList.push("something");
-doublyList.push("something two");
-doublyList.push("something three");
-doublyList.push("something four");
-console.log(doublyList.shift());
-console.log(doublyList.shift());
-console.log(doublyList.shift());
-console.log(doublyList.shift());
-// console.log(doublyList.shift());
-console.log(doublyList);
+// doublyList.push("something");
+// doublyList.push("something two");
+// doublyList.push("something three");
+// doublyList.push("something four");
+doublyList.unshift("should be at the tails");
+doublyList.unshift("should be at the begininning");
+console.log(doublyList.head.next.prev);
