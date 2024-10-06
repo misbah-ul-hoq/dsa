@@ -80,10 +80,11 @@ class DoublyLinkedList {
   }
 
   get(index: number) {
+    let currentElement;
     if (index < 0 || index === this.length) {
       return;
     } else if (index <= this.length / 2) {
-      let currentElement = this.head;
+      currentElement = this.head;
       for (let i = 0; i <= index; i++) {
         if (i === index) {
           return currentElement;
@@ -92,7 +93,7 @@ class DoublyLinkedList {
         }
       }
     } else {
-      let currentElement = this.tail;
+      currentElement = this.tail;
       for (let i = this.length - 1; i >= index; i--) {
         if (i === index) {
           return currentElement;
