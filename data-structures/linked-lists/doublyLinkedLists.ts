@@ -103,6 +103,13 @@ class DoublyLinkedList {
       }
     }
   }
+
+  set(index: number, val: any) {
+    let oldNode = this.get(index);
+    if (!oldNode) return false;
+    oldNode.val = val;
+    return true;
+  }
 }
 
 const doublyList = new DoublyLinkedList();
@@ -113,4 +120,5 @@ doublyList.push(4);
 doublyList.push(5);
 doublyList.push(6);
 
-console.log(doublyList.get(5));
+console.log(doublyList.set(1, "two"));
+console.log(doublyList.head.next);
