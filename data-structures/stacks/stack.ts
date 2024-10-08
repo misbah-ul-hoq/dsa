@@ -36,6 +36,9 @@ class Stack {
     let poppedItem = this.first;
     if (this.length === 0) {
       return;
+    } else if (this.length === 1) {
+      this.first = null;
+      this.last = null;
     } else {
       this.first = poppedItem.next;
     }
@@ -46,13 +49,12 @@ class Stack {
 
 const stack = new Stack();
 
-// stack.push(1);
+stack.push(1);
 // stack.push(2);
 // stack.push(3);
 // stack.push(4);
 console.log(stack.pop());
 console.log(stack.pop());
-console.log(stack.pop());
-console.log(stack.pop());
-console.log(stack.pop());
+// s
 // console.log(stack.first.next);
+console.log(stack);

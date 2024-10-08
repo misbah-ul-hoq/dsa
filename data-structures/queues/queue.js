@@ -1,32 +1,32 @@
 "use strict";
-class SNode {
+class QNode {
     constructor(val) {
         this.val = val;
         this.next = null;
     }
 }
-class Stack {
+class Queue {
     constructor() {
         this.first = null;
         this.last = null;
         this.length = 0;
     }
-    push(val) {
-        let newNode = new SNode(val);
+    enqueue(val) {
+        let newNode = new QNode(val);
         if (this.length === 0) {
             this.first = newNode;
-            this.last = this.first;
+            this.last = newNode;
         }
         else {
-            let prevFirst = this.first;
-            this.first = newNode;
-            this.first.next = prevFirst;
+            let prevLast = this.last;
+            prevLast.next = newNode;
+            this.last = newNode;
         }
         this.length++;
         return this.length;
     }
-    pop() {
-        let poppedItem = this.first;
+    dequeue() {
+        let prevFirst = this.first;
         if (this.length === 0) {
             return;
         }
@@ -35,19 +35,16 @@ class Stack {
             this.last = null;
         }
         else {
-            this.first = poppedItem.next;
+            this.first = prevFirst.next;
         }
         this.length--;
-        return poppedItem.val;
+        return prevFirst.val;
     }
 }
-const stack = new Stack();
-stack.push(1);
-// stack.push(2);
-// stack.push(3);
-// stack.push(4);
-console.log(stack.pop());
-console.log(stack.pop());
-// s
-// console.log(stack.first.next);
-console.log(stack);
+const queue = new Queue();
+queue.enqueue(1);
+// queue.enqueue(2);
+// queue.enqueue(3);
+console.log(queue.dequeue());
+console.log(queue);
+// console.log(queue.dequeue());
