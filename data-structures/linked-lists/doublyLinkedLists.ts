@@ -130,6 +130,24 @@ class DoublyLinkedList {
     }
     return true;
   }
+
+  remove(index: number) {
+    if (this.length === 0) return;
+    let removedNode = this.get(index);
+    if (!removedNode) return;
+    if (index === 0) {
+      return this.shift();
+    } else if (index === this.length - 1) {
+      return this.pop();
+    } else {
+      removedNode.prev.next = removedNode.next;
+      removedNode.next.prev = removedNode.prev;
+      removedNode.next = null;
+      removedNode.prev = null;
+      this.length--;
+    }
+    return removedNode;
+  }
 }
 
 const doublyList = new DoublyLinkedList();
@@ -137,8 +155,6 @@ doublyList.push(1);
 doublyList.push(2);
 doublyList.push(3);
 doublyList.push(4);
-doublyList.push(5);
-doublyList.push(6);
 
-console.log(doublyList.insert(-1, "last"));
+console.log(doublyList.remove(2));
 console.log(doublyList);
