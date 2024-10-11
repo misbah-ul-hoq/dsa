@@ -16,32 +16,60 @@ class BinarySearchTree {
             this.root = newNode;
             return this;
         }
-        else {
-            let current = this.root;
-            while (true) {
-                if (val < current.val) {
-                    if (!current.left) {
-                        current.left = newNode;
-                        return this;
-                    }
-                    else {
-                        current = current.left;
-                    }
+        let current = this.root;
+        while (true) {
+            if (val < current.val) {
+                if (!current.left) {
+                    current.left = newNode;
+                    return this;
                 }
-                else if (val > current.val) {
-                    if (!current.right) {
-                        current.right = newNode;
-                        return this;
-                    }
-                    else {
-                        current = current.right;
-                    }
+                current = current.left;
+            }
+            else if (val > current.val) {
+                if (!current.right) {
+                    current.right = newNode;
+                    return this;
                 }
-                else {
-                    return;
-                }
+                current = current.right;
+            }
+            else {
+                return;
             }
         }
+    }
+    find(val) {
+        if (!this.root) {
+            return;
+        }
+        let current = this.root;
+        let isFound = false;
+        while (current && !isFound) {
+            if (val < current.val) {
+                current = current.left;
+            }
+            else if (val > current.val) {
+                current = current.right;
+            }
+            else {
+                isFound = true;
+            }
+        }
+        return current ? current : undefined;
+    }
+    contains(val) {
+        if (!this.root)
+            return false;
+        let current = this.root;
+        let isFound = false;
+        while (current && !isFound) {
+            if (val < current.val)
+                current = current.left;
+            else if (val > current.val)
+                current = current.right;
+            else
+                isFound = true;
+        }
+        return isFound;
     }
 }
 const bst = new BinarySearchTree();
@@ -52,9 +80,6 @@ bst.insert(6);
 bst.insert(15);
 bst.insert(11);
 bst.insert(5);
-bst.insert(5);
-// bst.root.left = new BinarySearchNode(8);
-// bst.root.right = new BinarySearchNode(11);
-// bst.root.right.right = new BinarySearchNode(12);
-console.log(bst);
-// console.log(null);
+// console.log(bst.find(5));s
+console.log(bst.contains(50));
+// console.log(bst);
