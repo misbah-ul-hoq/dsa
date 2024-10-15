@@ -116,6 +116,18 @@ class BinarySearchTree {
     traverse(current);
     return values;
   }
+
+  DFSInOrder() {
+    const values: any[] = [];
+    const current = this.root;
+    function traverse(node: any) {
+      if (node.left) traverse(node.left);
+      values.push(node.val);
+      if (node.right) traverse(node.right);
+    }
+    traverse(current);
+    return values;
+  }
 }
 
 const bst = new BinarySearchTree();
@@ -129,4 +141,4 @@ bst.insert(11);
 bst.insert(5);
 bst.insert(5);
 
-console.log(bst.DFSPostOrder());
+console.log(bst.DFSInOrder());
