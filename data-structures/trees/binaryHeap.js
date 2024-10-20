@@ -1,7 +1,4 @@
 "use strict";
-function swap(arr, index1, index2) {
-    [arr[index1], arr[index2]] = [arr[index2], arr[index1]];
-}
 class MaxBinaryHeap {
     constructor() {
         this.values = [];
@@ -64,17 +61,21 @@ class MaxBinaryHeap {
 const heap = new MaxBinaryHeap();
 heap.insert(15);
 heap.insert(20);
+heap.insert(20);
 heap.insert(30);
 heap.insert(45);
 heap.insert(35);
 heap.insert(65);
 heap.insert(33);
-console.log(heap.extractMax());
-console.log(heap.extractMax());
-console.log(heap.extractMax());
-console.log(heap.extractMax());
-console.log(heap.extractMax());
-console.log(heap.extractMax());
-console.log(heap.extractMax());
-console.log(heap.extractMax());
+heap.insert(33);
+heap.insert(15);
+heap.insert(115);
+// console.log(heap.extractMax());
+// console.log(heap.extractMax());
+// console.log(heap.extractMax());
+// console.log(heap.extractMax());
+// console.log(heap.extractMax());
+// console.log(heap.extractMax());
+// console.log(heap.extractMax());
+// console.log(heap.extractMax());
 console.log(heap);
