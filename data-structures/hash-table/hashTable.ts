@@ -30,16 +30,52 @@ class HashTable {
     const bucket = this.table[index];
     for (let i = 0; i < bucket.length; i++) {
       if (bucket[i][0] === key) {
-        return bucket[i];
+        return bucket[i][1];
       }
     }
+  }
+
+  values() {
+    const result: any[] = [];
+    for (let i = 0; i < this.table.length; i++) {
+      if (this.table[i]) {
+        for (let j = 0; j < this.table[i].length; j++) {
+          if (!result.includes(this.table[i][j][1])) {
+            result.push(this.table[i][j][1]);
+          }
+        }
+      }
+    }
+    return result;
+  }
+
+  keys() {
+    const result: any[] = [];
+    for (let i = 0; i < this.table.length; i++) {
+      if (this.table[i]) {
+        for (let j = 0; j < this.table[i].length; j++) {
+          if (!result.includes(this.table[i][j][0]))
+            result.push(this.table[i][j][0]);
+        }
+      }
+    }
+    return result;
   }
 }
 
 const ht = new HashTable();
 
 ht.set("some", "thing");
-ht.set("some", "else");
-ht.set("else", "any");
-console.log(ht.get("somes"));
-// console.log(ht.hash("abc"));
+ht.set("some", "thing");
+ht.set("some", "any");
+ht.set("some", "some");
+ht.set("two", "any");
+ht.set("three", "more");
+// console.log(ht.keys());
+
+const test = { id: 1 };
+let map = new Map();
+map.set("key", "value");
+map.set(1, "number key");
+map.set(test, "object key");
+console.log(map.get(test)); // Output: 'value'
