@@ -19,11 +19,22 @@ class HashTable {
         }
         this.table[index].push([key, value]);
     }
+    get(key) {
+        const index = this.hash(key);
+        if (!this.table[index]) {
+            return;
+        }
+        const bucket = this.table[index];
+        for (let i = 0; i < bucket.length; i++) {
+            if (bucket[i][0] === key) {
+                return bucket[i];
+            }
+        }
+    }
 }
 const ht = new HashTable();
-console.log(ht.hash("some"));
 ht.set("some", "thing");
 ht.set("some", "else");
-ht.set("else", "else");
-console.log(ht.table);
+ht.set("else", "any");
+console.log(ht.get("somes"));
 // console.log(ht.hash("abc"));
