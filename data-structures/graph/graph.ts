@@ -22,6 +22,19 @@ class Graph {
         (item: any) => item !== vertex1
       );
   }
+
+  removeVertex(vertex: any) {
+    // Method One to remove vertex
+    const vert = this.adjacencyList[vertex];
+    vert.map((item: any) => {
+      this.adjacencyList[item] = this.adjacencyList[item].filter(
+        (el: any) => el !== vertex
+      );
+    });
+    delete this.adjacencyList[vertex];
+
+    // Method Two to remove vertex
+  }
 }
 
 const graph = new Graph();
@@ -29,9 +42,16 @@ const graph = new Graph();
 graph.addVertex("Dhaka");
 graph.addVertex("Raj");
 graph.addVertex("Delhi");
+graph.addVertex("Mumbai");
+graph.addVertex("Chennai");
 
 graph.addEdge("Dhaka", "Delhi");
-graph.addEdge("Dhaka", "Raj");
+graph.addEdge("Dhaka", "Mumbai");
+graph.addEdge("Raj", "Dhaka");
+graph.addEdge("Delhi", "Chennai");
+graph.addEdge("Mumbai", "Delhi");
+graph.addEdge("Delhi", "Raj");
 
-graph.removeEdge("Dhaka", "Raj");
+console.log(graph);
+graph.removeVertex("Delhi");
 console.log(graph);
