@@ -11,6 +11,17 @@ class Graph {
     if (this.adjacencyList[vertex1]) this.adjacencyList[vertex1].push(vertex2);
     if (this.adjacencyList[vertex2]) this.adjacencyList[vertex2].push(vertex1);
   }
+
+  removeEdge(vertex1: any, vertex2: any) {
+    if (this.adjacencyList[vertex1])
+      this.adjacencyList[vertex1] = this.adjacencyList[vertex1].filter(
+        (item: any) => item !== vertex2
+      );
+    if (this.adjacencyList[vertex2])
+      this.adjacencyList[vertex2] = this.adjacencyList[vertex2].filter(
+        (item: any) => item !== vertex1
+      );
+  }
 }
 
 const graph = new Graph();
@@ -21,4 +32,6 @@ graph.addVertex("Delhi");
 
 graph.addEdge("Dhaka", "Delhi");
 graph.addEdge("Dhaka", "Raj");
+
+graph.removeEdge("Dhaka", "Raj");
 console.log(graph);
