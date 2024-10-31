@@ -70,6 +70,16 @@ class Graph {
     }
     return result;
   }
+
+  DFS(start: any) {
+    const queue: any[] = [start];
+    const result: any[] = [];
+    const visited: any = {};
+    let first;
+    while (queue.length) {
+      first = queue.shift();
+    }
+  }
 }
 
 const graph = new Graph();
