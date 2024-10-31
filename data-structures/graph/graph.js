@@ -63,6 +63,25 @@ class Graph {
         }
         return result;
     }
+    BFS(start) {
+        const queue = [start];
+        const result = [];
+        const visited = {};
+        // const adjacencyList = this.adjacencyList;
+        let first;
+        visited[start] = true;
+        while (queue.length) {
+            first = queue.shift();
+            result.push(first);
+            this.adjacencyList[first].map((neighbour) => {
+                if (!visited[neighbour]) {
+                    visited[neighbour] = true;
+                    queue.push(neighbour);
+                }
+            });
+        }
+        return result;
+    }
 }
 const graph = new Graph();
 graph.addVertex("A");
@@ -78,4 +97,5 @@ graph.addEdge("C", "E");
 graph.addEdge("D", "E");
 graph.addEdge("D", "F");
 graph.addEdge("E", "F");
-console.log(graph.DFSIterative("A"));
+console.log(graph);
+console.log(graph.BFS("A"));

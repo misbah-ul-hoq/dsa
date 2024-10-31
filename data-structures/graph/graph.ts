@@ -71,14 +71,25 @@ class Graph {
     return result;
   }
 
-  DFS(start: any) {
+  BFS(start: any) {
     const queue: any[] = [start];
     const result: any[] = [];
     const visited: any = {};
+    // const adjacencyList = this.adjacencyList;
     let first;
+
+    visited[start] = true;
     while (queue.length) {
       first = queue.shift();
+      result.push(first);
+      this.adjacencyList[first].map((neighbour: any) => {
+        if (!visited[neighbour]) {
+          visited[neighbour] = true;
+          queue.push(neighbour);
+        }
+      });
     }
+    return result;
   }
 }
 
@@ -99,4 +110,5 @@ graph.addEdge("D", "E");
 graph.addEdge("D", "F");
 graph.addEdge("E", "F");
 
-console.log(graph.DFSIterative("A"));
+console.log(graph);
+console.log(graph.BFS("A"));
