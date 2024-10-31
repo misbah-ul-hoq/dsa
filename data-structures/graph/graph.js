@@ -28,19 +28,35 @@ class Graph {
         delete this.adjacencyList[vertex];
         // Method Two to remove vertex
     }
+    DFSRecursive(start) {
+        const result = [];
+        const visitedVertices = {};
+        const adjacencyList = this.adjacencyList;
+        (function dfs(vertex) {
+            if (!vertex)
+                return;
+            visitedVertices[vertex] = true;
+            result.push(vertex);
+            adjacencyList[vertex].forEach((neighbour) => {
+                if (!visitedVertices[neighbour])
+                    return dfs(neighbour);
+            });
+        })(start);
+        return result;
+    }
 }
 const graph = new Graph();
-graph.addVertex("Dhaka");
-graph.addVertex("Raj");
-graph.addVertex("Delhi");
-graph.addVertex("Mumbai");
-graph.addVertex("Chennai");
-graph.addEdge("Dhaka", "Delhi");
-graph.addEdge("Dhaka", "Mumbai");
-graph.addEdge("Raj", "Dhaka");
-graph.addEdge("Delhi", "Chennai");
-graph.addEdge("Mumbai", "Delhi");
-graph.addEdge("Delhi", "Raj");
-console.log(graph);
-graph.removeVertex("Delhi");
-console.log(graph);
+graph.addVertex("A");
+graph.addVertex("B");
+graph.addVertex("C");
+graph.addVertex("D");
+graph.addVertex("E");
+graph.addVertex("F");
+graph.addEdge("A", "B");
+graph.addEdge("A", "C");
+graph.addEdge("B", "D");
+graph.addEdge("C", "E");
+graph.addEdge("D", "E");
+graph.addEdge("D", "F");
+graph.addEdge("E", "F");
+console.log(graph.DFSRecursive("A"));
