@@ -44,6 +44,25 @@ class Graph {
         })(start);
         return result;
     }
+    DFSIterative(start) {
+        const stack = [];
+        const result = [];
+        const visited = {};
+        stack.push(start);
+        visited[start] = true;
+        let last;
+        while (stack.length) {
+            last = stack.pop();
+            result.push(last);
+            this.adjacencyList[last].map((neighbour) => {
+                if (!visited[neighbour]) {
+                    visited[neighbour] = true;
+                    stack.push(neighbour);
+                }
+            });
+        }
+        return result;
+    }
 }
 const graph = new Graph();
 graph.addVertex("A");
@@ -59,4 +78,4 @@ graph.addEdge("C", "E");
 graph.addEdge("D", "E");
 graph.addEdge("D", "F");
 graph.addEdge("E", "F");
-console.log(graph.DFSRecursive("A"));
+console.log(graph.DFSIterative("A"));

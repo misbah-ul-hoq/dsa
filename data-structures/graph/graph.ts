@@ -50,6 +50,26 @@ class Graph {
     })(start);
     return result;
   }
+
+  DFSIterative(start: any) {
+    const stack: any[] = [];
+    const result: any[] = [];
+    const visited: any = {};
+    stack.push(start);
+    visited[start] = true;
+    let last;
+    while (stack.length) {
+      last = stack.pop();
+      result.push(last);
+      this.adjacencyList[last].map((neighbour: any) => {
+        if (!visited[neighbour]) {
+          visited[neighbour] = true;
+          stack.push(neighbour);
+        }
+      });
+    }
+    return result;
+  }
 }
 
 const graph = new Graph();
@@ -69,4 +89,4 @@ graph.addEdge("D", "E");
 graph.addEdge("D", "F");
 graph.addEdge("E", "F");
 
-console.log(graph.DFSRecursive("A"));
+console.log(graph.DFSIterative("A"));
