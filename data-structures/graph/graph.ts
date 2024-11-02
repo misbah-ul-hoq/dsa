@@ -1,3 +1,4 @@
+// this is an unweighted graph
 class Graph {
   adjacencyList: any;
   constructor() {
@@ -110,5 +111,57 @@ graph.addEdge("D", "E");
 graph.addEdge("D", "F");
 graph.addEdge("E", "F");
 
-console.log(graph);
-console.log(graph.BFS("A"));
+// console.log(graph);
+// console.log(graph.BFS("A"));
+
+// Weighted graph
+class WGrpah {
+  adjacencyList: any;
+  constructor() {
+    this.adjacencyList = {};
+  }
+  addVertex(vertex: any) {
+    if (!this.adjacencyList[vertex]) this.adjacencyList[vertex] = [];
+  }
+
+  addEdge(vertex1: any, vertex2: any, weight: number) {
+    if (this.adjacencyList[vertex1])
+      this.adjacencyList[vertex1].push({ node: vertex2, weight });
+    if (this.adjacencyList[vertex2])
+      this.adjacencyList[vertex2].push({ node: vertex1, weight });
+  }
+}
+
+class PQueue {
+  values: { val: string; priority: number }[];
+  constructor() {
+    this.values = [];
+  }
+  enqueue(val: any, priority: any) {
+    this.values.push({ val, priority });
+    this.sort();
+  }
+  dequeue() {
+    return this.values.shift();
+  }
+  sort() {
+    this.values.sort((a, b) => a.priority - b.priority);
+  }
+}
+
+const q = new PQueue();
+
+q.enqueue("A", 10);
+q.enqueue("A", 5);
+q.enqueue("A", 1);
+q.enqueue("A", 11);
+
+const wGraph = new WGrpah();
+
+wGraph.addVertex("A");
+wGraph.addVertex("B");
+wGraph.addVertex("C");
+
+wGraph.addEdge("A", "B", 10);
+// console.log(wGraph.adjacencyList["A"]);
+console.log(q.dequeue());
