@@ -161,7 +161,17 @@ const wGraph = new WGrpah();
 wGraph.addVertex("A");
 wGraph.addVertex("B");
 wGraph.addVertex("C");
+wGraph.addVertex("D");
+wGraph.addVertex("E");
+wGraph.addVertex("F");
 
-wGraph.addEdge("A", "B", 10);
+wGraph.addEdge("A", "B", 4);
+wGraph.addEdge("A", "C", 2);
+wGraph.addEdge("B", "E", 3);
+wGraph.addEdge("C", "D", 2);
+wGraph.addEdge("C", "F", 4);
+wGraph.addEdge("D", "E", 3);
+wGraph.addEdge("D", "F", 1);
+wGraph.addEdge("E", "F", 1);
 // console.log(wGraph.adjacencyList["A"]);
 console.log(q.dequeue());
